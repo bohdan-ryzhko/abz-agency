@@ -1,0 +1,9 @@
+@import "../../sass/helper";
+
+.title {
+  text-align: center;
+  color: $main-color;
+  font-size: 40px;
+  line-height: calc(40/40);
+  margin-bottom: 50px;
+}

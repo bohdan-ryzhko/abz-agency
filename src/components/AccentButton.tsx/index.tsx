@@ -1,5 +1,4 @@
 import sass from "./AccentButton.module.scss";
-import { useReduxState } from "../../hooks";
 import { Spinner } from "../Spinner";
 import { FC } from "react";
 
@@ -7,11 +6,10 @@ type AccentButtonProps = {
   handleClick?: () => void,
   text: string,
   href?: string,
+  isLoad?: boolean,
 }
 
-export const AccentButton: FC<AccentButtonProps> = ({ handleClick, text, href }) => {
-  const { token } = useReduxState();
-
+export const AccentButton: FC<AccentButtonProps> = ({ handleClick, text, href, isLoad }) => {
   return (
     <>
       {
@@ -23,7 +21,7 @@ export const AccentButton: FC<AccentButtonProps> = ({ handleClick, text, href })
             type="button"
           >
             {
-              token.isLoad
+              isLoad
                 ? <Spinner color="#000000" size={25} />
                 : text
             }

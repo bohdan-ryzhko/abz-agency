@@ -6,10 +6,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import tokenReducer, { removeToken } from "./tokenSlice/slice";
-import { TokenState } from "../d";
-import { PersistPartial } from "redux-persist/es/persistReducer";
-import { GetDefaultMiddleware } from "@reduxjs/toolkit/dist/getDefaultMiddleware";
+import usersReducer from "./usersSlice/slice";
+import { DefaultMiddleware } from "../d";
 import { fetchToken } from "./tokenSlice/operations";
+import { fetchUsers } from "./usersSlice/operations";
 
 axios.defaults.baseURL = "https://frontend-test-assignment-api.abz.agency/api/v1/";
 
@@ -21,9 +21,10 @@ const tokenPersistConfig = {
 
 const reducer = combineReducers({
   token: persistReducer(tokenPersistConfig, tokenReducer),
+  users: usersReducer,
 });
 
-const middleware = (getDefaultMiddleware: GetDefaultMiddleware<{ token: TokenState & PersistPartial }>) => {
+const middleware = (getDefaultMiddleware: DefaultMiddleware) => {
   return getDefaultMiddleware({ serializableCheck: false });
 }
 
@@ -39,6 +40,7 @@ export {
   persistor,
   removeToken,
   fetchToken,
+  fetchUsers,
 }
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,11 +1,12 @@
 import { Header, Notifications } from "./components";
-import { Hero } from "./sections";
+import { Hero, Users } from "./sections";
 
 function App() {
   return (
     <>
       <Header />
       <Hero />
+      <Users />
       <Notifications />
     </>
   );

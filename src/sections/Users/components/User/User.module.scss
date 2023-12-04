@@ -1,0 +1,34 @@
+@import "../../../../sass/helper";
+
+.user {
+  flex-basis: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: auto;
+
+  @include tablet {
+    flex-basis: calc(50% - 20px);
+  }
+
+  @include desktop {
+    flex-basis: calc(100% / 3 - 20px);
+  }
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.info {
+  &:first-of-type {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from "axios";
 import { FetchTokenResponse } from "../../d";
 import { toast } from "react-toastify";
 
-export const fetchToken = createAsyncThunk(
+export const fetchToken = createAsyncThunk<FetchTokenResponse>(
   "fetch-token",
   async (_, { rejectWithValue }) => {
     try {
