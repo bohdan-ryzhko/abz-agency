@@ -1,0 +1,26 @@
+@import "../../sass/helper";
+
+.header {
+  height: 60px;
+  background-color: #fff;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.btnsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
