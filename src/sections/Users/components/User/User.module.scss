@@ -12,11 +12,11 @@
   overflow-x: auto;
 
   @include tablet {
-    flex-basis: calc(50% - 20px);
+    flex-basis: calc(50% - 16px);
   }
 
   @include desktop {
-    flex-basis: calc(100% / 3 - 20px);
+    flex-basis: calc(100% / 3 - 25px);
   }
 }
 
@@ -31,4 +31,11 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(26/16);
+  white-space: wrap;
+  max-width: 100%;
 }

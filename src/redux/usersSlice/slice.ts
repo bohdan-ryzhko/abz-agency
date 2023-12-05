@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { UsersState } from "../../d";
-import { fetchUsers } from "./operations";
+import { createUser, fetchUsers } from "./operations";
 
 const initialState: UsersState = {
   users: [],
@@ -36,6 +36,18 @@ const usersSlice = createSlice({
         state.users.push(...payload.users);
       })
       .addCase(fetchUsers.rejected, (state, action) => {
+        state.isLoad = false;
+        state.error = action.payload;
+      })
+      .addCase(createUser.pending, (state) => {
+        state.isLoad = true;
+      })
+      .addCase(createUser.fulfilled, (state, action) => {
+        state.isLoad = false;
+        state.error = null;
+        state.users = action.payload.users.users;
+      })
+      .addCase(createUser.rejected, (state, action) => {
         state.isLoad = false;
         state.error = action.payload;
       })

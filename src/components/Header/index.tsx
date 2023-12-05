@@ -18,7 +18,7 @@ export const Header: FC = () => {
             <Logo />
           </a>
           <div className={sass.btnsWrapper}>
-            <AccentButton href="#" text="Users" />
+            <AccentButton href="#users" text="Users" />
             <AccentButton isLoad={token.isLoad} handleClick={() => dispatch(fetchToken())} text="Sign up" />
           </div>
         </div>

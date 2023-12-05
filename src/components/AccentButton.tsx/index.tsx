@@ -7,9 +7,18 @@ type AccentButtonProps = {
   text: string,
   href?: string,
   isLoad?: boolean,
+  disabled?: boolean,
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"],
 }
 
-export const AccentButton: FC<AccentButtonProps> = ({ handleClick, text, href, isLoad }) => {
+export const AccentButton: FC<AccentButtonProps> = ({
+  handleClick,
+  text,
+  href,
+  isLoad,
+  disabled,
+  type = "button"
+}) => {
   return (
     <>
       {
@@ -18,7 +27,8 @@ export const AccentButton: FC<AccentButtonProps> = ({ handleClick, text, href, i
           : <button
             className={sass.button}
             onClick={handleClick}
-            type="button"
+            type={type}
+            disabled={disabled}
           >
             {
               isLoad
