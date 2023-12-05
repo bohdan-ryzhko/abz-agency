@@ -3,6 +3,7 @@ import { useAppDispatch } from "./useAppDispatch";
 import { InitialRegisterValues } from "../d";
 import { FormikHelpers } from "formik";
 import { createUser } from "../redux/usersSlice/operations";
+import { removeToken } from "../redux";
 
 export const useSubmitCreateUser = (token: string) => {
   const [loadedPhoto, setLoadedPhoto] = useState<null | string>(null);
@@ -27,6 +28,7 @@ export const useSubmitCreateUser = (token: string) => {
 
     resetForm();
     setLoadedPhoto(null);
+    dispatch(removeToken());
   }
 
   return {
